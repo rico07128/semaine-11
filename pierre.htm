@@ -1,0 +1,51 @@
+<!-Ce script est inspiré du 421 mais je l'ai modifié un brin->
+<head>
+<title>Jeu de "Pierre-Papier-Ciseaux" en Javascript</title>
+<script>
+var vous;
+var ordi;
+function Votrechoix(v){
+vous=v;document.votrechoix.src='choix'+v+'.gif';
+Choixordi();
+}
+
+function Choixordi(){
+ordi=Math.round(Math.random()*2)+1;
+document.choixordi.src='choix'+ordi+'.gif';
+Pipaci();
+}
+
+function Pipaci(){
+if((vous==1) && (ordi==3) || (vous==2) && (ordi==1) || (vous==3) && (ordi==2))
+{alert('BRAVO!!!!');document.votrechoix.src="choix.gif";document.choixordi.src="choix.gif";}
+else{Ordipipaci();}
+}
+
+function Ordipipaci(){
+if((ordi==1) && (vous==3) || (ordi==2) && (vous==1) || (ordi==3) && (vous==2))
+{alert('PERDU!!!!');document.votrechoix.src="choix.gif";document.choixordi.src="choix.gif";}
+else{alert('AOUCH!\nA REFAIRE!');document.votrechoix.src="choix.gif";document.choixordi.src="choix.gif";}
+}
+</script>
+</head>
+
+
+<body>
+<font face="Comic Sans MS">
+<center>
+ORDI:<br>
+<img src="choix.gif" name="choixordi" alt="Je suis pret!
+Je vous attends ;-)">
+<p>
+VOS CHOIX:
+<br>
+<img src="choix1.png" onClick="Votrechoix(1)" alt="PiERRE">
+<img src="choix2.png" onClick="Votrechoix(2)" alt="PAPIER">
+<img src="choix3.jpg" onClick="Votrechoix(3)" alt="CISEAUX">
+<br>
+VOUS AVEZ CHOISI:
+<br>
+<img src="choix.gif" name="votrechoix" alt="A vous de jouer">
+</center>
+</font>
+</body>
